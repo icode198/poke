@@ -1,17 +1,15 @@
 import React from 'react'
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { PokeBackground } from '../components/PokeBackground';
 import { generalStyles } from '../theme/styles';
 import { usePokemonPaginated } from '../hooks/usePokemonPaginated';
 import { SinglePokemon } from '../interfaces/pokemonInterfaces';
 import { PokemonCard } from '../components/PokemonCard';
 import { Loading } from '../components/Loading';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const HomeScreen = () => {
-
   const {singlePokemonList, loadPokemons} = usePokemonPaginated();
-  //console.log('Pokemons Paginated', {singlePokemonList});
   
   const _renderItem = (item:SinglePokemon) => {
     return (
@@ -21,9 +19,11 @@ export const HomeScreen = () => {
 
   return (
     <PokeBackground>
+      <Icon style={styles.arrowBack} name='arrow-back' color='#696869' size={25} />
+      <Icon style={styles.list} name='list' color='#696869' size={25} />
       <View style={{position: 'absolute'}}>
         <Text style={[styles.textHeader, generalStyles.globalMargin]}>
-          RN Pokedex
+          Pokedex
         </Text>
       </View>
       <View style={styles.container}>
@@ -33,7 +33,6 @@ export const HomeScreen = () => {
           renderItem={({item}) => _renderItem(item)}
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          //Infinite scroll
           onEndReached={loadPokemons}
           onEndReachedThreshold={0.5}
           ListFooterComponent={(
@@ -41,22 +40,42 @@ export const HomeScreen = () => {
           )}
         />
       </View>
+      <Icon style={styles.options} name='options' color='white' size={25} />
     </PokeBackground>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    //backgroundColor: 'skyblue',
+    flex: 1,
     alignItems: 'center',
+    marginTop: -25
   },
   textHeader: {
-    color: 'white', 
-    paddingHorizontal: 10,
+    color: '#35353A',
     fontWeight: '400',
-    fontFamily: 'Pokemon-Hollow',
-    fontSize: 40, 
-    marginTop: 125
-  }
+    fontFamily: 'Flexo',
+    fontSize: 24,
+    marginTop: 70
+  },
+  arrowBack: {
+    ...generalStyles.globalMargin,
+    position: 'absolute',
+    top: 36,
+  },
+  list: {
+    ...generalStyles.globalMargin,
+    position: 'absolute',
+    top: 36,
+    right: 0
+  },
+  options: {
+    ...generalStyles.globalMargin,
+    position: 'absolute',
+    bottom: 72,
+    right: 0,
+    padding: 16,
+    backgroundColor: '#7076C9',
+    borderRadius: 30
+  },
 })

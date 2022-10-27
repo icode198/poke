@@ -10,17 +10,9 @@ import { PokemonDetails } from '../components/PokemonDetails'
 interface Props extends StackScreenProps<RootStackParams, 'PokemonScreen'>{};
 
 export const PokemonScreen = ({route, navigation}:Props) => {
-
-
-  //console.log("Props", route.params);
-  
   const { height:windowHeight } =  Dimensions.get('window');
-
   const  {singlePokemon:pokemon, color}= route.params;
-  
   const {isLoading, pokemonDetail} = usePokemonDetail(pokemon.id);
-  
-  //console.log("Pokemon detail", pokemonDetail);
   
   return (
     <View style={{...styles.container, backgroundColor: color}}>
@@ -66,7 +58,6 @@ export const PokemonScreen = ({route, navigation}:Props) => {
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {

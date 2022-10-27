@@ -8,9 +8,7 @@ interface Props {
   color: string,
 }
 
-
 export const PokemonDetails = ({pokemon, color}:Props) => {
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={{ flex: 1, marginHorizontal: 10, marginTop: 20}}>
@@ -23,7 +21,5 @@ export const PokemonDetails = ({pokemon, color}:Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: 'red',
-    //paddingHorizontal: 10
   },
 })

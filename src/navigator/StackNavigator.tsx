@@ -45,8 +45,6 @@ export const StackNavigator = () => {
   );
 }
 
-//Another stack navigator
-
 export const SearchStackNavigator = () => {
 
   const SearchStack = createStackNavigator<RootStackParams>();
@@ -75,4 +73,8 @@ export const SearchStackNavigator = () => {
       <SearchStack.Screen name="PokemonScreen" component={PokemonScreen} />
     </SearchStack.Navigator>
   );
+}
+
+export const AccountStackNavigator = () => {
+  return <></>
 }

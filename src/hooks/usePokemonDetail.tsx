@@ -3,7 +3,6 @@ import { PokemonDetail } from '../interfaces/pokemonInterfaces';
 import { pokemonApi } from '../api/pokemonApi';
 
 export const usePokemonDetail = (id:string) => {
-  
   const [isLoading, setIsLoading] = useState(true);
   const [pokemonDetail, setPokemonDetail] = useState<PokemonDetail>({} as PokemonDetail);
 
@@ -17,7 +16,6 @@ export const usePokemonDetail = (id:string) => {
   useEffect(() => {
     loadPokemonDetail();
   }, [])
-
   
   return {
     isLoading,

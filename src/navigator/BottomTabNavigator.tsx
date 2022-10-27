@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { StackNavigator, SearchStackNavigator } from './StackNavigator';
+import { StackNavigator, SearchStackNavigator, AccountStackNavigator } from './StackNavigator';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StyleSheet, Text } from 'react-native';
 
@@ -9,34 +9,46 @@ const Tab = createMaterialBottomTabNavigator();
 export const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
-      activeColor='#C04C4B'
+      activeColor='#7076C9'
       inactiveColor='#696869'
       barStyle={{
         position: 'absolute',
-        opacity: 0.7,
+        opacity: 1,
         backgroundColor: 'white',
         borderWidth: 0,
+        borderTopLeftRadius: 12,
+        borderTopRightRadius: 12,
         elevation: 0,
-        shadowColor: 'rgba(255,255,255,0.5)',
+        shadowColor: '#000000',
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.16,
+        shadowRadius: 24,
       }}
     >
       <Tab.Screen 
-        name="RootScreen"   
+        name="HomeScreen" 
         component={StackNavigator} 
         options={{
-          //Whitout error: tabBarLabel: 'List'.toLocaleUpperCase(),
-          tabBarLabel: <Text style={styles.tabTextStyle}>{'List'.toLocaleUpperCase()}</Text>,
-          tabBarIcon: ({color}) => <Icon name='list-circle-outline' color={color} size={25} />
+          tabBarLabel: <Text style={styles.tabTextStyle}>Home</Text>,
+          tabBarIcon: ({color}) => <Icon name='home' color={color} size={25} />
         }}
       />
 
       <Tab.Screen 
-        name="SearchScreen" 
+        name="WishlistScreen" 
         component={SearchStackNavigator} 
         options={{
-          //Whitout error: Search: 'List'.toLocaleUpperCase(),
-          tabBarLabel: <Text style={styles.tabTextStyle}>{'Search'.toLocaleUpperCase()}</Text>,
-          tabBarIcon: ({color}) => <Icon name='search-circle-outline' color={color} size={25} />
+          tabBarLabel: <Text style={styles.tabTextStyle}>Wishlist</Text>,
+          tabBarIcon: ({color}) => <Icon name='heart' color={color} size={25} />
+        }}
+      />
+
+      <Tab.Screen 
+        name="AccountScreen" 
+        component={AccountStackNavigator} 
+        options={{
+          tabBarLabel: <Text style={styles.tabTextStyle}>My Account</Text>,
+          tabBarIcon: ({color}) => <Icon name='person' color={color} size={25} />
         }}
       />
     </Tab.Navigator>
@@ -46,6 +58,6 @@ export const BottomTabNavigator = () => {
 const styles = StyleSheet.create({
   tabTextStyle: {
     fontSize: 13, 
-    fontFamily: 'FingerPaint-Regular'
+    fontFamily: 'Flexo'
   }
 });

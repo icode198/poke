@@ -12,7 +12,7 @@ export const PokeBackground = ({children}:Props) => {
       <View style={styles.imageContainer}>
         <Image
           source={require('../assets/pokedex/pokebola-blanca.png')}
-          style={styles.imageBackground} 
+          style={styles.imageBackground}
         />
       </View>
       {children}
@@ -23,17 +23,16 @@ export const PokeBackground = ({children}:Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#C04C4B'
+    backgroundColor: '#FFFFFF'
   },
   imageContainer: {
-    marginTop: -110,
-    marginRight: -70,
+    marginTop: -39,
+    marginRight: -59,
     justifyContent: 'center',
     alignItems: 'flex-end',
   },
   imageBackground: {
-    opacity: 0.5,
-    height: 300, 
-    width: 300, 
+    height: 176,
+    width: 176,
   }
 })

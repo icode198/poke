@@ -7,7 +7,6 @@ interface Props {
   style?: StyleProp<ImageStyle>,
 }
 
-
 export const FadeInImage = ({uri, style}:Props) => {
 
   const {opacityValue, fadeIn} = useAnimated();

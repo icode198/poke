@@ -5,10 +5,10 @@ export const Loading = () => {
   return (
     <View style={styles.activityContainer}>
       <ActivityIndicator
-        color='white'
+        color='#7076C9'
         size={80}
       />
-      <Text style={{ textAlign: 'center', fontFamily: 'FingerPaint-Regular' }}>Fetching data...</Text>
+      <Text style={{ color: '#7076C9', textAlign: 'center', fontFamily: 'FingerPaint-Regular' }}>Fetching data...</Text>
     </View>
   )
 }
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
   activityContainer: {
     flex: 1, 
     justifyContent: 'center', 
-    backgroundColor: '#C04C4B'
+    backgroundColor: '#FFFFFF'
   },
 })
